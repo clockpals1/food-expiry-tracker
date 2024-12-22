@@ -1,50 +1,156 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+# **ScannerScreen with Food Expiry Tracker**
 
-1. Install dependencies
+## **Project Overview**
 
-   ```bash
-   npm install
-   ```
+This project enhances the **ScannerScreen** of a shopping and inventory app by adding a **Food Expiry Tracker** feature. The app allows users to scan food products, view detailed product information (including expiry dates), and track the expiry status of their food items. Users can set reminders for products nearing expiration, add items to their cart, and view their shopping history to track expired products.
 
-2. Start the app
+---
 
-   ```bash
-    npx expo start
-   ```
+## **Features**
 
-In the output, you'll find options to open the app in a
+1. **Barcode Scanner**
+   - Scan food products using the camera to retrieve information such as product name, price, and expiry date.
+   - **Animation**: Pulse effect guiding the barcode for scanning.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+2. **Expiry Date Tracker**
+   - After scanning, the app displays the product's expiry date.
+   - **Expiration Countdown**: A dynamic countdown timer to show how many days are left before expiry.
+   - **Color-Coding**: Products are color-coded based on their expiry status (green for fresh, yellow for near expiry, red for expired).
+   - **Expiry Alert**: Notification alerts when a product is nearing its expiry date.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+3. **Add to Cart with Expiry Reminder**
+   - Users can add scanned products to their shopping cart.
+   - An **Expiry Reminder** feature allows users to set a notification when a product is about to expire.
 
-## Get a fresh project
+4. **Shopping Cart**
+   - View items in the cart, with **expiry alerts** for products nearing expiration.
+   - **Expiry Warning**: Products near expiry are marked with an alert icon.
 
-When you're ready, run:
+5. **Shopping History**
+   - Keep track of previously scanned products.
+   - **Expired Items**: Products that have expired are listed with a red alert.
+
+---
+
+## **How It Works**
+
+1. **Scan Products**: Use the built-in camera to scan food products. The app will retrieve information such as product name, price, and expiry date. The expiry date will be displayed with color-coding based on its proximity to the current date.
+   
+2. **Track Expiry Dates**: Products will be color-coded based on their expiry status:
+   - **Green**: Fresh, with plenty of time before expiry.
+   - **Yellow**: Approaching expiry (user-defined threshold, e.g., 3 days before expiry).
+   - **Red**: Expired or passed expiry date.
+
+3. **Set Expiry Reminders**: If a product is nearing expiry, users can choose to receive a **push notification** when it is about to expire.
+
+4. **Shopping Cart**: Add scanned products to your cart and check the status of items nearing expiry.
+
+5. **Shopping History**: View a list of all previously scanned products, including their expiry status. Expired items will be highlighted with a red warning.
+
+---
+
+## **Installation and Setup**
+
+### **1. Clone the Repository**
 
 ```bash
-npm run reset-project
+git clone https://github.com/clockpals1/food-expiry-tracker.git
+cd food-expiry-tracker
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### **2. Install Dependencies**
 
-## Learn more
+Install the required dependencies using npm or yarn.
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm install
+```
+or
+```bash
+yarn install
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### **3. Expo Setup**
 
-## Join the community
+Since this project uses Expo, make sure you have Expo installed globally:
 
-Join our community of developers creating universal apps.
+```bash
+npm install -g expo-cli
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Then, run the app on a device or emulator:
+
+```bash
+expo start
+```
+
+This will open a browser window with a QR code. Scan the QR code with the Expo Go app on your phone to run the app.
+
+---
+
+## **Required Dependencies**
+
+- **React Native** (for building the app)
+- **Expo** (for easier setup and managing the app lifecycle)
+- **@react-navigation/native** (for navigation)
+- **@react-navigation/bottom-tabs** (for bottom tab navigation)
+- **@react-native-async-storage/async-storage** (for local storage)
+- **expo-notifications** (for managing push notifications)
+- **@expo/vector-icons** (for icons)
+- **react-native-camera** (for scanning barcodes)
+- **react-navigation** (for handling navigation)
+  
+---
+
+## **Features Walkthrough**
+
+### **1. Barcode Scanner:**
+   - The scanner screen utilizes the camera to scan food product barcodes. Upon successful scan, product details, including the expiry date, are displayed on the screen.
+
+### **2. Expiry Date Tracker:**
+   - **Countdown Timer**: A countdown appears on products nearing expiry. This helps users know when to consume the product before it spoils.
+   - **Expiration Alert**: Products that are close to expiry (user-defined threshold) will show an alert in the product details.
+
+### **3. Add to Cart with Expiry Reminder:**
+   - After scanning a product, users can click **Add to Cart**, which will store the product in their cart. 
+   - Users can also set an **Expiry Reminder** that will notify them when the product is nearing expiry.
+
+### **4. Shopping Cart:**
+   - The cart displays all added products. If a product is nearing expiry, a warning icon will show up beside it. Expired items will also be clearly marked.
+
+### **5. Shopping History:**
+   - The history section allows users to review products they've scanned in the past. Expired items will appear at the top of the list, marked in red.
+
+---
+
+## **Future Enhancements**
+
+1. **User Preferences**: Allow users to set custom expiry thresholds (e.g., get a reminder 5 days before expiry).
+2. **Barcode Database**: Integrate with a food product database to automatically pull nutritional information, allergens, etc.
+3. **Multiple User Profiles**: Allow users to create profiles to track food expiry for different family members or roommates.
+4. **Push Notifications**: Implement push notifications for new scanned items and reminders about nearing expiry products.
+
+---
+
+## **Contributing**
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+
+
+
+
+

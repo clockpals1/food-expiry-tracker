@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
-    fontWeight: 'bold',
     color: THEME.colors.text,
     marginBottom: THEME.spacing.md,
   },
